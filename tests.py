@@ -14,3 +14,52 @@ class RomanosTest(unittest.TestCase):
 
         self.assertRaises(ValueError, romano_a_entero, 'Z')
         self.assertRaises(ValueError, romano_a_entero, 23)
+
+    '''
+    MMM - 3000
+    MMMM - OverflowError (Demasiados simbolostipo M')
+    CC - 200
+    III - 3
+    XX - 20
+    VV - OverflowError('Demasiados simbolos tipo V')
+
+
+    '''
+
+
+    def test_MMM(self):
+        self.assertEqual(romano_a_entero('MMM'), 3000)
+
+    def test_MMMM(self):
+        self.assertRaises(OverflowError, romano_a_entero, 'MMMM')
+
+    def test_CC(self):
+        self.assertEqual(romano_a_entero('CC'), 200)
+
+    def test_III(self):
+        self.assertEqual(romano_a_entero('III'), 3)
+
+    def test_XX(self):
+        self.assertEqual(romano_a_entero('XX'), 10)
+
+    def test_VV(self):
+        self.assertRaises(OverflowError, romano_a_entero, 'VV')
+
+    def tes_repes_variadas(self):
+        self.assertEqual(romano_a_entero('MMLXXIII'), 2073)
+
+    def test_IV(self):
+        self.assertEqual(romano_a_entero('IV'), 4)
+
+    def test_IC(self):
+        self.assertRaises(ValueError, romano_entero, 'IC')
+
+'''
+MMMMCMMM - Error
+IIX - Error
+'''
+
+
+
+if __name__ == '__main__':
+    unittest.main()
