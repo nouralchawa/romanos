@@ -6,24 +6,24 @@ tipo_1 = ('I', 'X', 'C', 'M')
 
 restas = ('CD', 'CM', 'XL', 'XC', 'IV', 'IX')
 
+
 def simbolo_a_entero(simbolo):
-    if isinstance(romano, str) and simbolo.upper() in simbolos:
-            return simbolos[simbolo.upper()]
-        elif isinstance(simbolo, str):
-            raise ValueError (f"símbolo {simbolo} no permitido")
-        else:
-            raise ValueError (f"parámetro {simbolo} debe ser un string")
+    if isinstance(simbolo, str) and simbolo.upper() in simbolos:
+        return simbolos[simbolo.upper()]
+    elif isinstance(simbolo, str):
+        raise ValueError(f"símbolo {simbolo} no permitido")
+    else:
+        raise ValueError(f"parámetro {simbolo} debe ser un string")
 
 
 def romano_a_entero(romano):
-    
-    if not isinstance(romano, str) 
-        raise ValueError (f"parámetro {romano} debe ser un string")
+
+    if not isinstance(romano, str):
+        raise ValueError(f"parámetro {romano} debe ser un string")
 
     suma = 0
     c_repes = 0
     valor_anterior = ""
-
 
     for letra in romano:
         if letra == valor_anterior and letra in tipo_5:
@@ -32,7 +32,7 @@ def romano_a_entero(romano):
             c_repes += 1
             if c_repes > 2:
                 raise OverflowError(f"Demasiados simbolos de tipo {letra}")
-        elif valor_anterior and simbolo_a_entero[letra] > simbolos_a_entero[valor_anterior]:
+        elif valor_anterior and simbolo_a_entero(letra) > simbolo_a_entero(valor_anterior):
             if valor_anterior + letra not in restas:
                 raise ValueError
             suma -= simbolos[valor_anterior] * 2
@@ -44,4 +44,3 @@ def romano_a_entero(romano):
         valor_anterior = letra
 
     return suma
-

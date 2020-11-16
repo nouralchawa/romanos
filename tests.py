@@ -1,5 +1,5 @@
 import unittest
-from romanos import *
+from romanos_ import *
 
 class RomanosTest(unittest.TestCase):
 
@@ -40,7 +40,7 @@ class RomanosTest(unittest.TestCase):
         self.assertEqual(romano_a_entero('III'), 3)
 
     def test_XX(self):
-        self.assertEqual(romano_a_entero('XX'), 10)
+        self.assertEqual(romano_a_entero('XX'), 20)
 
     def test_VV(self):
         self.assertRaises(OverflowError, romano_a_entero, 'VV')
@@ -52,7 +52,7 @@ class RomanosTest(unittest.TestCase):
         self.assertEqual(romano_a_entero('IV'), 4)
 
     def test_IC(self):
-        self.assertRaises(ValueError, romano_entero, 'IC')
+        self.assertRaises(ValueError, romano_a_entero, 'IC')
 
 '''
 MMMMCMMM - Error
